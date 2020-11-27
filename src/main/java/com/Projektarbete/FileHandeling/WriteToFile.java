@@ -1,6 +1,9 @@
 package com.Projektarbete.FileHandeling;
 
-import java.io.File;
+import com.Projektarbete.Contact.Contact;
+
+import java.io.*;
+import java.util.ArrayList;
 
 public class WriteToFile {
     private File contactList = null;
@@ -14,10 +17,7 @@ public class WriteToFile {
             filePath = contactList.getPath();
             System.out.println("is file? " + fileExist);
 
-            contactList = new File("Test.txt");
-            fileExist
-
-
+            contactList = new File("test.txt");
 
 
 
@@ -25,6 +25,14 @@ public class WriteToFile {
             e.printStackTrace();
 
         }
+    }
+
+    public void writeToFile(ArrayList<Contact>list) throws IOException {
+        FileOutputStream out = new FileOutputStream("test.txt");
+        ObjectOutputStream obs = new ObjectOutputStream(out);
+        obs.writeObject(list);
+        obs.flush();
+        obs.close();
     }
 
 
