@@ -1,5 +1,6 @@
 package com.Projektarbete.Main;
 
+import com.Projektarbete.Contact.Contact;
 import com.Projektarbete.FileHandeling.WriteToFile;
 import com.Projektarbete.ListOperations.ContactList;
 

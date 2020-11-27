@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class WriteToFile {
     private File contactList = null;
+<<<<<<< HEAD
     private String filePath = "contactList.txt";
 
     public void createFile() throws IOException {
@@ -29,6 +30,22 @@ public class WriteToFile {
         filePath = contactList.getPath();
         System.out.println("is file? " + fileExist);
 */
+=======
+    private String filePath;
+    private boolean fileExist = false;
+
+    public void createFile(){
+        try{
+            contactList = new File("C:");
+            fileExist = contactList.isFile();
+            filePath = contactList.getPath();
+            System.out.println("is file? " + fileExist);
+
+            contactList = new File("Test.txt");
+            //fileExist
+
+
+>>>>>>> Athanasios_branch
 
 
     }
