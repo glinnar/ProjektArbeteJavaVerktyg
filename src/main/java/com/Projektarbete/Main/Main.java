@@ -2,11 +2,23 @@ package com.Projektarbete.Main;
 
 import com.Projektarbete.FileHandeling.WriteToFile;
 
-public class Main {
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
 
-    public static void main(String[] args) {
-        WriteToFile filewriter = new WriteToFile();
-        filewriter.createFile();
+public class Main {
+    private static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) throws IOException {
+       // String Msg = scanner.nextLine();
+        ArrayList<Integer> list = new ArrayList();
+        for (int i = 0; i < 50; i++) {
+            list.add(i);
+        }
+
+        WriteToFile write = new WriteToFile();
+
+
 
     }
 }
