@@ -15,7 +15,7 @@ public class WriteToFile {
             System.out.println("is file? " + fileExist);
 
             contactList = new File("Test.txt");
-            fileExist
+            //fileExist
 
 
 
