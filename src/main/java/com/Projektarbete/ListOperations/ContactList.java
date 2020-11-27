@@ -1,6 +1,8 @@
 package com.Projektarbete.ListOperations;
 
-public class ContactList {
+import java.io.Serializable;
+
+public class ContactList implements Serializable {
 
         private String firstName;
         private String lastName;
@@ -53,4 +55,12 @@ public class ContactList {
             return new ContactList(firstName, lastName, mail, phone);
         }
 
+    @Override
+    public String toString() {
+        return  ( ". " +
+                this.getFirstName() + " | " +
+                this.getLastName() + " | " +
+                this.getMail() + " | " +
+                this.getPhone() + " | " );
+    }
 }
