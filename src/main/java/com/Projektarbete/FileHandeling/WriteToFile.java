@@ -30,10 +30,7 @@ public class WriteToFile {
         filePath = contactList.getPath();
         System.out.println("is file? " + fileExist);
 */
-<<<<<<< HEAD
 
-=======
->>>>>>> d31f2f3203a2e49f0d9cc21e179c80350dc8bbca
 
 
     }
