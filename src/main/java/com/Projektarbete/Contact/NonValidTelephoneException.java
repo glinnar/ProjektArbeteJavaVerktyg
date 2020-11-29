@@ -1,10 +1,10 @@
 package com.Projektarbete.Contact;
 
+// NonValidTelephoneException handle cases where the given telephone-number doesn't have a correct format
+// (doesn't comply with telephoneRegex). For instance, a NonValidTelephoneException exception is thrown when
+// someone tries to give "Albert" as value to telephoneNumber instance-variable of a Contact object.
 public class NonValidTelephoneException extends Exception{
-    NonValidTelephoneException() {
-    }
-
-    public String toString() {
-        return "* NonValidTelephoneException: Enter a telephone number. Avoid special characters or letters.";
+    public NonValidTelephoneException(String telephone) {
+        super("* NonValidTelephoneException: Telephone '" + telephone + "' has incorrect format.");
     }
 }
