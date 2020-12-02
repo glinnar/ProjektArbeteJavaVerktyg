@@ -4,18 +4,10 @@ import java.util.ArrayList;
 
 public class ListMethods {
 
-    private String myFirstName;
-    private String myLastName;
-    private String myMail;
-    private String myPhone;
     private ArrayList<ContactList> myContacts;
 
     // Konstruktor
-    public ListMethods(String myFirstName, String myLastName, String myMail, String myPhone) {
-        this.myFirstName = myFirstName;
-        this.myLastName = myLastName;
-        this.myMail = myMail;
-        this.myPhone = myPhone;
+    public ListMethods() {
         this.myContacts = new ArrayList<>();
     }
 

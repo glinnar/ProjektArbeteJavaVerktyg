@@ -1,9 +1,10 @@
 package com.Projektarbete.Contact;
 
+import java.io.Serializable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Contact {
+public class Contact implements Serializable {
 
     private String firstName;
     private String lastName;
