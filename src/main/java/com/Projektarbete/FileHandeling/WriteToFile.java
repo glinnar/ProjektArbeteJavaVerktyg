@@ -7,8 +7,6 @@ import java.util.ArrayList;
 
 public class WriteToFile {
     private File contactList = null;
-
-
     private String filePath = "contactList.txt";
 
     public void createFile() throws IOException {
