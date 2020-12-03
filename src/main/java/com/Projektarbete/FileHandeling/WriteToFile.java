@@ -23,13 +23,19 @@ public class WriteToFile {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
     }
 
     // contactList = new File(this.filePath);
+
+
+    // contactList = new File(this.filePath);
+
        /* fileExist = contactList.isFile();
         filePath = contactList.getPath();
         System.out.println("is file? " + fileExist);
 */
+
 
     public void writeDataToFile(ArrayList<ContactList> list) throws IOException {
         try {
@@ -48,19 +54,3 @@ public class WriteToFile {
 
     }
 }
-
-/*
-*    try {
-            File file = new File("Text.txt");
-
-            if (file.createNewFile()){
-                System.out.println("File created: " + file.getName());
-            }
-            else {
-                System.out.println("File aldready Exits");
-            }
-
-        }catch (IIOException e){
-            System.out.println("An error occured");
-            e.printStackTrace();
-        }*/

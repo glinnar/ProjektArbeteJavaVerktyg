@@ -1,7 +1,12 @@
-package com.Projektarbete.Contact;
+package com.Projektarbete.ConctactTest;
 
+import com.Projektarbete.Contact.Contact;
+import com.Projektarbete.Contact.NonValidEmailException;
+import com.Projektarbete.Contact.NonValidNameException;
+import com.Projektarbete.Contact.NonValidTelephoneException;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ContactTest {

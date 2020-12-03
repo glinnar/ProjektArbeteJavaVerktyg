@@ -18,8 +18,7 @@ public class Main {
         System.out.println(list);
         WriteToFile filewriter = new WriteToFile();
         filewriter.createFile();
-
-
+        filewriter.writeDataToFile(list);
     }
 
     private static void printActions() {
