@@ -1,8 +1,7 @@
 package com.Projektarbete.FileHandeling;
 
-import com.Projektarbete.ListOperations.ContactList;
-
 import java.io.*;
+import com.Projektarbete.Contact.Contact;
 import java.util.ArrayList;
 
 public class WriteToFile {
@@ -34,7 +33,7 @@ public class WriteToFile {
 */
 
 
-    public void writeDataToFile(ArrayList<ContactList> list) throws IOException {
+    public void writeDataToFile(ArrayList<Contact> list) throws IOException {
         try {
             FileOutputStream out = new FileOutputStream(this.contactList);
             ObjectOutputStream obs = new ObjectOutputStream(out);

@@ -9,7 +9,7 @@ public class Contact implements Serializable {
     private String firstName;
     private String lastName;
     private String telephoneNumber;
-    private String emailAdress;
+    private String emailAddress;
     // Regular expression for first- and last-name format check.
     private static final String nameRegex = "^[A-Za-z\\x{00C0}-\\x{00FF}][A-Za-z\\x{00C0}-\\x{00FF}\\'\\-]+" +
             "([\\ A-Za-z\\x{00C4}-\\x{00F6}][A-Za-z\\x{00C4}-\\x{00F6}\\'\\-]+)*$";
@@ -18,13 +18,12 @@ public class Contact implements Serializable {
     // Regular expression for email-address format check.
     private static final String emailRegex = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
 
-    // Constuctor of a contact which includes first- & last-name, telephone-number and email-address.
-    public Contact(String firstName, String lastName, String telephoneNumber, String emailAdress) {
+    // Constructor of a contact which includes first- & last-name, telephone-number and email-address.
+    public Contact(String firstName, String lastName, String telephoneNumber, String emailAddress) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.telephoneNumber = telephoneNumber;
-        this.emailAdress = emailAdress;
-        this.emailAdress = emailAdress;
+        this.emailAddress = emailAddress;
     }
 
     // Get the first-name of a Contact object.
@@ -43,8 +42,12 @@ public class Contact implements Serializable {
     }
 
     // Get the email-address of a Contact object.
-    public String getEmailAdress() {
-        return emailAdress;
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public static Contact createContact(String firstName, String lastName, String telephoneNumber, String emailAddress) {
+        return new Contact(firstName, lastName, telephoneNumber, emailAddress);
     }
 
     // Validate if a first-name has the right format,
@@ -84,13 +87,13 @@ public class Contact implements Serializable {
 
     // Validate if an email-address has the right email format,
     // otherwise throw exception NonValidEmailException.
-    public void validateEmail(String emailAdress) throws NonValidEmailException {
+    public void validateEmail(String emailAddress) throws NonValidEmailException {
         boolean matchFound;
         Pattern pattern = Pattern.compile(emailRegex, Pattern.CASE_INSENSITIVE);
-        Matcher matcher = pattern.matcher(emailAdress);
+        Matcher matcher = pattern.matcher(emailAddress);
         matchFound = matcher.find();
         if(!matchFound)
-            throw new NonValidEmailException(emailAdress);
+            throw new NonValidEmailException(emailAddress);
 
     }
 
@@ -138,10 +141,10 @@ public class Contact implements Serializable {
     // Set the email-address of an existing Contact object.
     // A NonValidEmailException is caught when the input argument
     // doesn't have the right email-format(emailRegex).
-    public void setEmailAdress(String emailAdress) {
+    public void setEmailAddress(String emailAddress) {
         try {
-            validateEmail(emailAdress);
-            this.emailAdress = emailAdress;
+            validateEmail(emailAddress);
+            this.emailAddress = emailAddress;
         }
         catch(NonValidEmailException exc) {
             System.out.println(exc);
