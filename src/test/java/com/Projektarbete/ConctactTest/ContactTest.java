@@ -97,8 +97,8 @@ class ContactTest {
     @Order(10)
     // Check if the setEmailAdress() method changes the emailAdress instance-variable of a Contact object.
     void setEmailAddress_whenEmailAddressValid_contactWithNewEmailAddress() {
-        contactExample.setEmailAdress("koutsoubas@kke.gr");
-        assertEquals("koutsoubas@kke.gr",contactExample.getEmailAdress());
+        contactExample.setEmailAddress("koutsoubas@kke.gr");
+        assertEquals("koutsoubas@kke.gr",contactExample.getEmailAddress());
     }
 
     @Test
