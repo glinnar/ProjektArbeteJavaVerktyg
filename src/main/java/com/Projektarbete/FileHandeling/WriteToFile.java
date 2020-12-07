@@ -6,7 +6,6 @@ import java.io.*;
 
 public class WriteToFile {
     private File contactList = null;
-
     private String filePath = "contactList.txt";
 
     public void createFile() throws IOException {
@@ -26,7 +25,22 @@ public class WriteToFile {
 
     }
 
+<<<<<<< HEAD
     public void writeDataToFile(ListMethods contactList) throws IOException {
+=======
+    // contactList = new File(this.filePath);
+
+
+    // contactList = new File(this.filePath);
+
+       /* fileExist = contactList.isFile();
+        filePath = contactList.getPath();
+        System.out.println("is file? " + fileExist);
+*/
+
+
+    public void writeDataToFile(ArrayList<ContactList> list) throws IOException {
+>>>>>>> ab28db27e48672bb11fbb311c47790263e315953
         try {
             FileOutputStream out = new FileOutputStream(this.contactList);
             ObjectOutputStream obs = new ObjectOutputStream(out);
@@ -37,11 +51,13 @@ public class WriteToFile {
 
         } catch (IOException e) {
             System.out.println("An error occured");
-
             e.printStackTrace();
         }
 
 
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> ab28db27e48672bb11fbb311c47790263e315953

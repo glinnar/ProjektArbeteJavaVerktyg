@@ -14,6 +14,7 @@ public class Main {
     private static ReadFromFile fileReader = new ReadFromFile();
 
 
+<<<<<<< HEAD
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         // Måste lägga metodanropet för filskapandet här utanför while loopen så att vi kan använda filen.
         fileWriter.createFile();
@@ -24,6 +25,16 @@ public class Main {
 
 
 
+=======
+    public static void main(String[] args) throws IOException {
+        ContactList contact = new ContactList("Gurra", "Kungen", "kungen@kungen.se", "0700-112233");
+        ArrayList<ContactList> list = new ArrayList<>();
+        list.add(contact);
+        System.out.println(list);
+        WriteToFile filewriter = new WriteToFile();
+        filewriter.createFile();
+        filewriter.writeDataToFile(list);
+>>>>>>> ab28db27e48672bb11fbb311c47790263e315953
     }
 
     private static void printActions() {
