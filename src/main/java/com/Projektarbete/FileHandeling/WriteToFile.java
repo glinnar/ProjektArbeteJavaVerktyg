@@ -1,8 +1,8 @@
 package com.Projektarbete.FileHandeling;
 
+import com.Projektarbete.ListOperations.ListMethods;
+
 import java.io.*;
-import com.Projektarbete.Contact.Contact;
-import java.util.ArrayList;
 
 public class WriteToFile {
     private File contactList = null;
@@ -26,18 +26,11 @@ public class WriteToFile {
 
     }
 
-        // contactList = new File(this.filePath);
-       /* fileExist = contactList.isFile();
-        filePath = contactList.getPath();
-        System.out.println("is file? " + fileExist);
-*/
-
-
-    public void writeDataToFile(ArrayList<Contact> list) throws IOException {
+    public void writeDataToFile(ListMethods contactList) throws IOException {
         try {
             FileOutputStream out = new FileOutputStream(this.contactList);
             ObjectOutputStream obs = new ObjectOutputStream(out);
-            obs.writeObject(list);
+            obs.writeObject(contactList);
             obs.flush();
             obs.close();
         } catch (ObjectStreamException e) {
@@ -52,18 +45,3 @@ public class WriteToFile {
     }
 }
 
-/*
-*    try {
-            File file = new File("Text.txt");
-
-            if (file.createNewFile()){
-                System.out.println("File created: " + file.getName());
-            }
-            else {
-                System.out.println("File aldready Exits");
-            }
-
-        }catch (IIOException e){
-            System.out.println("An error occured");
-            e.printStackTrace();
-        }*/

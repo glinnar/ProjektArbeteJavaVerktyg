@@ -1,26 +1,26 @@
 package com.Projektarbete.Main;
 
+import com.Projektarbete.FileHandeling.ReadFromFile;
 import com.Projektarbete.FileHandeling.WriteToFile;
+import com.Projektarbete.ListOperations.ListMethods;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
-
-import com.Projektarbete.Contact.Contact;
 
 public class Main {
     private static Scanner scanner = new Scanner(System.in);
+    private static ListMethods contactList = new ListMethods();
+    private static WriteToFile fileWriter = new WriteToFile();
+    private static ReadFromFile fileReader = new ReadFromFile();
 
 
-    public static void main(String[] args) throws IOException {
-        Contact contact = new Contact("Gurra","Kungen","kungen@kungen.se","0700-112233");
-        ArrayList<Contact> list = new ArrayList<>();
-        list.add(contact);
-        System.out.println(list);
-        WriteToFile filewriter = new WriteToFile();
-        filewriter.createFile();
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        // Måste lägga metodanropet för filskapandet här utanför while loopen så att vi kan använda filen.
+        fileWriter.createFile();
+        //Ger contactList data från inläsningen av filen. Måste också ligga utanför while loopen.
+        contactList = fileReader.readFromFile();
 
-        filewriter.writeDataToFile(list);
+
 
 
 
