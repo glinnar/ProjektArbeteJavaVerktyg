@@ -1,6 +1,6 @@
 package com.Projektarbete.FileHandeling;
 
-import com.Projektarbete.ListOperations.ListMethods;
+import com.Projektarbete.ListOperations.ContactList;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -11,14 +11,14 @@ public class ReadFromFile {
 
     private String filePath = "contactList.txt";
 
-    public ListMethods readFromFile() throws IOException, ClassNotFoundException {
+    public ContactList readFromFile() throws IOException, ClassNotFoundException {
 
-        ListMethods contactList = null;
+        ContactList contactList = null;
 
         try {
             FileInputStream fin = new FileInputStream(filePath);
             ObjectInputStream in = new ObjectInputStream(fin);
-            contactList = (ListMethods) in.readObject();
+            contactList = (ContactList) in.readObject();
 
         } catch (InvalidObjectException e) {
             e.printStackTrace();

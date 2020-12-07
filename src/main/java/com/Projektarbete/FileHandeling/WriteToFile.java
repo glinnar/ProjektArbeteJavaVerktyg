@@ -1,6 +1,6 @@
 package com.Projektarbete.FileHandeling;
 
-import com.Projektarbete.ListOperations.ListMethods;
+import com.Projektarbete.ListOperations.ContactList;
 
 import java.io.*;
 
@@ -28,7 +28,7 @@ public class WriteToFile {
     }
     // Skickar med ContactList och skriver dess innehåll till fil.
     
-    public void writeDataToFile(ListMethods contactList) throws IOException {
+    public void writeDataToFile(ContactList contactList) throws IOException {
 
         try {
             FileOutputStream out = new FileOutputStream(this.contactList);

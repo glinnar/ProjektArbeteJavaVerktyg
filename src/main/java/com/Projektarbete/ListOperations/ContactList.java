@@ -4,12 +4,12 @@ import com.Projektarbete.Contact.Contact;
 
 import java.util.ArrayList;
 
-public class ListMethods {
+public class ContactList {
 
     private ArrayList<Contact> myContacts;
 
     // Konstruktor
-    public ListMethods() {
+    public ContactList() {
         this.myContacts = new ArrayList<>();
     }
 
