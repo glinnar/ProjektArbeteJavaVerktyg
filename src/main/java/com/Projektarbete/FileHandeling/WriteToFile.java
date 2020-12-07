@@ -5,17 +5,17 @@ import com.Projektarbete.ListOperations.ContactList;
 import java.io.*;
 
 public class WriteToFile {
-    private File contactList = null;
+    private File contactListFile = null;
     private String filePath = "contactList.txt";
 
     //Skapar ett nytt File Objekt som får värdet av instansvariabeln filePath.
     // Om filen inte finns så skapas en ny,annars så skrivs ett meddelande ut att filen finns.
     public void createFile() throws IOException {
-        contactList = new File(this.filePath);
-        filePath = contactList.getPath();
+        contactListFile = new File(this.filePath);
+        filePath = contactListFile.getPath();
         try {
-            if (!contactList.exists()) {
-                contactList.createNewFile();
+            if (!contactListFile.exists()) {
+                contactListFile.createNewFile();
 
                 System.out.println("File " + filePath + "created");
             } else {
@@ -31,7 +31,7 @@ public class WriteToFile {
     public void writeDataToFile(ContactList contactList) throws IOException {
 
         try {
-            FileOutputStream out = new FileOutputStream(this.contactList);
+            FileOutputStream out = new FileOutputStream(this.contactListFile);
             ObjectOutputStream obs = new ObjectOutputStream(out);
             obs.writeObject(contactList);
             obs.flush();
