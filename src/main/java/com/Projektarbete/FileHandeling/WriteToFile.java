@@ -8,6 +8,8 @@ public class WriteToFile {
     private File contactList = null;
     private String filePath = "contactList.txt";
 
+    //Skapar ett nytt File Objekt som får värdet av instansvariabeln filePath.
+    // Om filen inte finns så skapas en ny,annars så skrivs ett meddelande ut att filen finns.
     public void createFile() throws IOException {
         contactList = new File(this.filePath);
         filePath = contactList.getPath();
@@ -24,23 +26,10 @@ public class WriteToFile {
         }
 
     }
-
-<<<<<<< HEAD
+    // Skickar med ContactList och skriver dess innehåll till fil.
+    
     public void writeDataToFile(ListMethods contactList) throws IOException {
-=======
-    // contactList = new File(this.filePath);
 
-
-    // contactList = new File(this.filePath);
-
-       /* fileExist = contactList.isFile();
-        filePath = contactList.getPath();
-        System.out.println("is file? " + fileExist);
-*/
-
-
-    public void writeDataToFile(ArrayList<ContactList> list) throws IOException {
->>>>>>> ab28db27e48672bb11fbb311c47790263e315953
         try {
             FileOutputStream out = new FileOutputStream(this.contactList);
             ObjectOutputStream obs = new ObjectOutputStream(out);
@@ -48,16 +37,8 @@ public class WriteToFile {
             obs.flush();
             obs.close();
         } catch (ObjectStreamException e) {
-
-        } catch (IOException e) {
-            System.out.println("An error occured");
             e.printStackTrace();
+
         }
-
-
     }
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> ab28db27e48672bb11fbb311c47790263e315953

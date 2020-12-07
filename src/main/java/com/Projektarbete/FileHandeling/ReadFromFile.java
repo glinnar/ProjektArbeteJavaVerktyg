@@ -13,18 +13,18 @@ public class ReadFromFile {
 
     public ListMethods readFromFile() throws IOException, ClassNotFoundException {
 
-        ListMethods list = null;
+        ListMethods contactList = null;
 
         try {
             FileInputStream fin = new FileInputStream(filePath);
             ObjectInputStream in = new ObjectInputStream(fin);
-            list = (ListMethods) in.readObject();
+            contactList = (ListMethods) in.readObject();
 
         } catch (InvalidObjectException e) {
             e.printStackTrace();
             System.out.println("Något gick fel");
         }
 
-        return list;
+        return contactList;
     }
 }
