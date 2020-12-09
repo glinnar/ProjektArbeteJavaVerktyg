@@ -8,6 +8,10 @@ public class WriteToFile {
     private File contactList = null;
     private String filePath = "contactList.txt";
 
+    public String getFilePath() {
+        return filePath;
+    }
+
     //Skapar ett nytt File Objekt som får värdet av instansvariabeln filePath.
     // Om filen inte finns så skapas en ny,annars så skrivs ett meddelande ut att filen finns.
     public void createFile() throws IOException {

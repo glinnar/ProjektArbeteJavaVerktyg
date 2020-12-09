@@ -2,9 +2,10 @@ package com.Projektarbete.ListOperations;
 
 import com.Projektarbete.Contact.Contact;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ListMethods {
+public class ListMethods implements Serializable {
 
     private ArrayList<Contact> myContacts;
 
