@@ -15,7 +15,7 @@ public class InputMismatchEx {
                 Integer input = scanner.nextInt();
                 System.out.println(input);
             } catch (InputMismatchException ex) {
-                throw new InputMismatchException("\"Error - Press any num key and enter: ");
+                throw new InputMismatchException("Error - Press any num key and enter: ");
             }
         }
     }
