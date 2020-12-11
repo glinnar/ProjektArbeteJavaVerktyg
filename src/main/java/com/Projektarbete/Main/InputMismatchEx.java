@@ -6,6 +6,9 @@ import java.util.Scanner;
 
 public class InputMismatchEx {
 
+    // Felhantering samt JUnit test del.
+    // Hanterar felet när man inmatar något annat än siffor.
+
     public void enterInteger() {
         {
             Scanner scanner = new Scanner(System.in);

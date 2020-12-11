@@ -1,5 +1,6 @@
 package com.Projektarbete.Main;
 
+import com.Projektarbete.Contact.Contact;
 import com.Projektarbete.FileHandeling.ReadFromFile;
 import com.Projektarbete.FileHandeling.WriteToFile;
 import com.Projektarbete.ListOperations.ContactList;
@@ -22,6 +23,9 @@ public class Main {
         contactList = fileReader.readFromFile();
 
 
+        // Felhantering samt JUnit test del.
+        // Hanterar felet när man inmatar något annat än siffor.
+        // Användaren måste inmata siffror här för att starta programmet.
 
         boolean waitingForCorrectInput = true;
 
@@ -35,6 +39,9 @@ public class Main {
             }
         }
 
+
+        // While- och switch-satsen för att hantera menyn.
+        // Den loopar tills anvämdaren mata in 0.
 
         boolean quit = false;
         System.out.println("<<< CONTACT BOOK >>>");
@@ -56,7 +63,7 @@ public class Main {
                     break;
 
                 case 2:
-                    //addNewContact();
+                    addNewContact();
                     break;
 
                 case 3:
@@ -82,6 +89,75 @@ public class Main {
             }
         }
     }
+
+    private static void addNewContact() {
+        System.out.println("First Name: ");
+        String firstName = scanner.nextLine();
+        System.out.println("Last Name: ");
+        String lastName = scanner.nextLine();
+        System.out.println("Email Address: ");
+        String mail = scanner.nextLine();
+        System.out.println("Phone Number: ");
+        String phone = scanner.nextLine();
+
+        // Ett objekt direkt där man kommer åt metoden createContact i Contact klassen
+        Contact newContact = Contact.createContact(firstName, lastName, mail, phone);
+
+//        if (listMethods.addNewContact(newContact, )) {
+//            System.out.println("Ny kontakt tillagd: Namn: " + name + ", Telefon: " + phone);
+//        } else {
+//            System.out.println("Kan inte lägga till, " + name + " finns redan.");
+//        }
+    }
+
+//    private static void updateContact() {
+//        System.out.println("Skriv in namnet på kontakten som skall uppdateras: ");
+//        String name = scanner.nextLine();
+//        Contact existingContactRecord = mobilePhone.queryContact(name);
+//        if(existingContactRecord == null) {
+//            System.out.println("Kan inte hitta kontakten.");
+//            return;
+//        }
+//
+//        System.out.print("Skriv in nytt namn för kontakten: ");
+//        String newName = scanner.nextLine();
+//        System.out.print("Skriv in nytt telefonnummer för kontakten: ");
+//        String newNumber = scanner.nextLine();
+//        Contact newContact = Contact.createContact(newName, newNumber);
+//        if(mobilePhone.updateContact(existingContactRecord, newContact)) {
+//            System.out.println("Kontakten är uppdaterad!");
+//        } else {
+//            System.out.println("Gick inte att updatera.");
+//        }
+//    }
+//
+//    private static void removeContact() {
+//        System.out.println("Skriv in namnet på kontakten som skall tas bort: ");
+//        String name = scanner.nextLine();
+//        Contact existingContactRecord = mobilePhone.queryContact(name);
+//        if (existingContactRecord == null) {
+//            System.out.println("Kan inte hitta kontakten.");
+//            return;
+//        }
+//
+//        if(mobilePhone.removeContact(existingContactRecord)) {
+//            System.out.println("Kontakten har tagits bort!");
+//        } else {
+//            System.out.println("Kan inte ta bort kontakten.");
+//        }
+//    }
+//
+//    private static void queryContact() {
+//        System.out.println("Skriv in namnet på kontakten: ");
+//        String name = scanner.nextLine();
+//        Contact existingContactRecord = mobilePhone.queryContact(name);
+//        if (existingContactRecord == null) {
+//            System.out.println("Kan inte hitta kontakten.");
+//            return;
+//        }
+//
+//        System.out.println("Namn: " + existingContactRecord.getName() + " telefonnummer är " + existingContactRecord.getPhoneNumber());
+//    }
 
 
 
