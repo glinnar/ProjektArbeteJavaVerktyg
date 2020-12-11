@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class InputMismatchEx {
 
     // Felhantering samt JUnit test del.
-    // Hanterar felet när man inmatar något annat än siffor.
+    // Hanterar felet när man matar in något annat än siffor.
 
     public void enterInteger() {
         {
@@ -18,7 +18,7 @@ public class InputMismatchEx {
                 Integer input = scanner.nextInt();
                 System.out.println(input);
             } catch (InputMismatchException ex) {
-                throw new InputMismatchException("Error - Press any num key and enter: ");
+                throw new InputMismatchException("Error: Incorrect input.");
             }
         }
     }
