@@ -18,17 +18,10 @@ public class ReadFromFile {
         ContactList contact = null;
         try {
             FileInputStream fin = new FileInputStream("ContactList.txt");
-            File file = new File("ContactList.txt");
-            if (file.length() == 0) {
-                System.out.println("File is empty ...");
-            }
-            else {
-                System.out.println("File is not empty ...");
-                ObjectInputStream in = new ObjectInputStream(fin);
-                contact =(ContactList) in.readObject();
-                in.close();
-            }
 
+            ObjectInputStream in = new ObjectInputStream(fin);
+            contact =(ContactList) in.readObject();
+            in.close();
             fin.close();
 
         } catch (InvalidObjectException e){

@@ -21,7 +21,6 @@ public class Main {
         // Måste lägga metodanropet för filskapandet här utanför while loopen så att vi kan använda filen.
         fileWriter.createFile();
         //Ger contactList data från inläsningen av filen. Måste också ligga utanför while loopen.
-        FileInputStream fin = new FileInputStream("ContactList.txt");
         File file = new File("ContactList.txt");
         if (file.length() != 0) {
             contactList = fileReader.readFromFile();
