@@ -5,6 +5,8 @@ import com.Projektarbete.FileHandeling.ReadFromFile;
 import com.Projektarbete.FileHandeling.WriteToFile;
 import com.Projektarbete.ListOperations.ContactList;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -19,7 +21,11 @@ public class Main {
         // Måste lägga metodanropet för filskapandet här utanför while loopen så att vi kan använda filen.
         fileWriter.createFile();
         //Ger contactList data från inläsningen av filen. Måste också ligga utanför while loopen.
-        contactList = fileReader.readFromFile();
+        FileInputStream fin = new FileInputStream("ContactList.txt");
+        File file = new File("ContactList.txt");
+        if (file.length() != 0) {
+            contactList = fileReader.readFromFile();
+        }
 
         // Felhantering samt JUnit test del.
         // Hanterar felet när man inmatar något annat än siffor.
