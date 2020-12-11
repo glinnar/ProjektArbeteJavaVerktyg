@@ -10,6 +10,11 @@ public class Contact implements Serializable {
     private String lastName;
     private String telephoneNumber;
     private String emailAddress;
+
+    public Contact(){
+
+    }
+
     // Regular expression for first- and last-name format check.
     private static final String nameRegex = "^[A-Za-z\\x{00C0}-\\x{00FF}][A-Za-z\\x{00C0}-\\x{00FF}\\'\\-]+" +
             "([\\ A-Za-z\\x{00C4}-\\x{00F6}][A-Za-z\\x{00C4}-\\x{00F6}\\'\\-]+)*$";
@@ -25,6 +30,11 @@ public class Contact implements Serializable {
         this.telephoneNumber = telephoneNumber;
         this.emailAddress = emailAddress;
     }
+
+    public Contact(String lastName) {
+        this.lastName = lastName;
+    }
+
 
     // Get the first-name of a Contact object.
     public String getFirstName() {
@@ -44,10 +54,6 @@ public class Contact implements Serializable {
     // Get the email-address of a Contact object.
     public String getEmailAddress() {
         return emailAddress;
-    }
-
-    public static Contact createContact(String firstName, String lastName, String telephoneNumber, String emailAddress) {
-        return new Contact(firstName, lastName, telephoneNumber, emailAddress);
     }
 
     // Validate if a first-name has the right format,
@@ -150,6 +156,10 @@ public class Contact implements Serializable {
             System.out.println(exc);
             exc.printStackTrace();
         }
+    }
+
+    public static Contact createContact(String firstName, String lastName, String telephoneNumber, String emailAddress) {
+        return new Contact(firstName, lastName, telephoneNumber, emailAddress);
     }
 }
 

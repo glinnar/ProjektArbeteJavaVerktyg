@@ -1,75 +1,107 @@
 package com.Projektarbete.ListOperations;
 
 import com.Projektarbete.Contact.Contact;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ContactList {
-
+public class ContactList implements Serializable {
     private ArrayList<Contact> myContacts;
 
-    // Konstruktor
+
     public ContactList() {
         this.myContacts = new ArrayList<>();
     }
 
-    private int findContact(Contact contact) {
+    // Skriver ut den vanliga listan.
+
+    public void listContacts() {
+        System.out.println("Contact ______");
+        System.out.println(" Firstname " + " | " + " Surname" + " | " + " Tel " + " | "
+                + " Email ");
+
+        System.out.println("___________________________________________" +
+                "___________________");
+        for (int i = 0; i < this.myContacts.size(); i++) {
+            System.out.println((i + 1) + ". " +
+                    this.myContacts.get(i).getFirstName() + " | " +
+                    this.myContacts.get(i).getLastName() + " | " +
+                    this.myContacts.get(i).getTelephoneNumber() + " | " +
+                    this.myContacts.get(i).getEmailAddress()
+            );
+
+            System.out.println("___________________________________________" +
+                    "___________________");
+
+        }
+
+
+    }
+    // Lägger till en kontakt i den vanliga listan.
+
+    public boolean addContact(Contact contact) {
+        if (getContact(contact.getFirstName()) >= 0) {
+            System.out.println("Contact already exist");
+            return false;
+        }
+        myContacts.add(contact);
+        return true;
+
+    }
+
+
+    // Returnerar index platsen på objektet som skickas in i den vanliga listan.
+    private int getContact(Contact contact) {
         return this.myContacts.indexOf(contact);
     }
 
-    private int findContact(String contactName) {
+    private int getContact(String contactName) {
         for (int i = 0; i < this.myContacts.size(); i++) {
             Contact contact = this.myContacts.get(i);
-            if (contact.getFirstName().equals(contactName) || contact.getLastName().equals(contactName)) {
+            if (contact.getFirstName().equals(contactName)) {
                 return i;
             }
         }
         return -1;
     }
 
-    // När ny person läggs till sker kontroll på att den inte redan finns i arraylistan
-    // Kontrollen görs enbart på för- och efternamn.
-    public boolean addNewContact(Contact contact,int index, boolean update) {
-        if (findContact(contact.getFirstName()) >= 0 && findContact(contact.getLastName()) >= 0 && !update) {
-            System.out.println("Contact already exist.");
+
+    public boolean removeContact(Contact contact) {
+        int listPosition = getContact(contact);
+        if (listPosition < 0) {
+            System.out.println(contact.getFirstName() + " does not exist in the list");
             return false;
         }
+        this.myContacts.remove(listPosition);
+        System.out.println(contact.getFirstName() + " has been removed");
+        return true;
+    }
 
-        if (update) {
-            myContacts.add((index-1), contact);
+
+
+    public Contact searchContact(String contactName) {
+        int listPosition = getContact(contactName);
+        if (listPosition >= 0) {
+            return this.myContacts.get(listPosition);
         }
-        else {
-            myContacts.add(contact);
+        return null;
+    }
+
+    public boolean updateContact(Contact contact, Contact upDatedContact) {
+        int listPosition = getContact(contact);
+        if (listPosition < 0) {
+            System.out.println(contact.getFirstName() + " ,does not exist in the list.");
+            return false;
         }
+        this.myContacts.set(listPosition, upDatedContact);
+
+        System.out.println(contact.getFirstName() + ", has been updated");
         return true;
 
     }
 
-    public boolean deleteContact(int index) {
+    //public static Contact createContact(String firstName, String lastName, String telephoneNumber, String emailAddress) {
+    //    return new Contact(firstName, lastName, telephoneNumber, emailAddress);
+    //}
 
-        if (myContacts.size()>0 && myContacts.size()>(index-1)) {
-            myContacts.remove(index - 1);
-            return true;
-        }
-        else {
-            return false;
-        }
-
-    }
-
-    public void printContacts() {
-        System.out.println("List of contacts:");
-        for (int i = 0; i < this.myContacts.size(); i++) {
-            System.out.println((i + 1) + "." +
-                    this.myContacts.get(i).getFirstName() + " " +
-                    this.myContacts.get(i).getLastName() + " " +
-                    this.myContacts.get(i).getTelephoneNumber() + " " +
-                    this.myContacts.get(i).getEmailAddress());
-        }
-    }
-
-    public void searchContact() {
-        // Added later
-    }
 
 }

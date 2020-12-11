@@ -9,22 +9,22 @@ import java.io.ObjectInputStream;
 
 public class ReadFromFile {
 
-    private String filePath = "contactList.txt";
-
     public ContactList readFromFile() throws IOException, ClassNotFoundException {
 
-        ContactList contactList = null;
-
+        ContactList contact = null;
         try {
-            FileInputStream fin = new FileInputStream(filePath);
+            FileInputStream fin = new FileInputStream("ContactList.txt");
             ObjectInputStream in = new ObjectInputStream(fin);
-            contactList = (ContactList) in.readObject();
+            contact =(ContactList) in.readObject();
+            in.close();
+            fin.close();
 
-        } catch (InvalidObjectException e) {
+        } catch (InvalidObjectException e){
             e.printStackTrace();
-            System.out.println("Något gick fel");
+            System.out.println("An error occured!");
         }
 
-        return contactList;
+        return contact;
+
     }
 }

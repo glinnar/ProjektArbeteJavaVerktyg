@@ -5,40 +5,36 @@ import com.Projektarbete.ListOperations.ContactList;
 import java.io.*;
 
 public class WriteToFile {
-    private File contactListFile = null;
-    private String filePath = "contactList.txt";
+    private File fileList = null;
+    private String filePath = "ContactList.txt";
 
-    //Skapar ett nytt File Objekt som får värdet av instansvariabeln filePath.
-    // Om filen inte finns så skapas en ny,annars så skrivs ett meddelande ut att filen finns.
     public void createFile() throws IOException {
-        contactListFile = new File(this.filePath);
-        filePath = contactListFile.getPath();
+        fileList = new File(this.filePath);
+        filePath = fileList.getPath();
         try {
-            if (!contactListFile.exists()) {
-                contactListFile.createNewFile();
+            if (!fileList.exists()) {
+                fileList.createNewFile();
 
-                System.out.println("File " + filePath + "created");
+                System.out.println("File " + filePath + " created");
             } else {
-                System.out.println("File Allready exits");
+                System.out.println("File Already exits");
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
     }
-    // Skickar med ContactList och skriver dess innehåll till fil.
-    
-    public void writeDataToFile(ContactList contactList) throws IOException {
 
+    public void writeDataToFile(ContactList list) throws IOException {
         try {
-            FileOutputStream out = new FileOutputStream(this.contactListFile);
+            FileOutputStream out = new FileOutputStream(this.fileList);
             ObjectOutputStream obs = new ObjectOutputStream(out);
-            obs.writeObject(contactList);
+            obs.writeObject(list);
             obs.flush();
             obs.close();
         } catch (ObjectStreamException e) {
             e.printStackTrace();
-
         }
+
+
     }
 }
