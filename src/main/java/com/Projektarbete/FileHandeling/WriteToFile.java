@@ -31,6 +31,7 @@ public class WriteToFile {
             obs.writeObject(list);
             obs.flush();
             obs.close();
+            out.close();
         } catch (ObjectStreamException e) {
             e.printStackTrace();
         }
