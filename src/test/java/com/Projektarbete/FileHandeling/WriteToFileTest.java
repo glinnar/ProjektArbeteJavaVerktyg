@@ -1,5 +1,4 @@
 package com.Projektarbete.FileHandeling;
-
 import com.Projektarbete.Contact.Contact;
 import com.Projektarbete.ListOperations.ContactList;
 import org.junit.jupiter.api.Assertions;
@@ -9,15 +8,16 @@ import org.junit.jupiter.api.io.TempDir;
 import java.io.File;
 import java.io.IOException;
 
+
 public class WriteToFileTest {
     WriteToFile fileWriter = new WriteToFile();
 
     Contact contactExample = new Contact("Charles", "Bukowski",
             "+46 234 563 123", "charles.bukowski@gmail.com");
-
-
     @Test
     void createFileTestObject() throws IOException {
+        Assertions.assertNotNull(fileWriter);
+
         Assertions.assertNotNull(fileWriter);
 
     }
@@ -52,12 +52,14 @@ public class WriteToFileTest {
         contacList.addContact(contactExample);
         fileWriter.writeDataToFile(contacList);
         Assertions.assertNotNull(contacList);
+        System.out.println(fileWriter.getFilePath());
 
     }
 
     @Test
+
     void writeFile(@TempDir File file) throws IOException {
-        file = File.createTempFile("contactList.txt", "hej");
-        file.canWrite();
+         file = File.createTempFile("contactList.txt","hej");
+         file.canWrite();
     }
 }
