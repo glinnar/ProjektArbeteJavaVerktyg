@@ -3,7 +3,6 @@ import com.Projektarbete.Contact.Contact;
 import com.Projektarbete.ListOperations.ContactList;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.io.TempDir;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,30 +17,14 @@ public class WriteToFileTest {
     void createFileTestObject() throws IOException {
         Assertions.assertNotNull(fileWriter);
 
-        Assertions.assertNotNull(fileWriter);
-
     }
 
     @Test
     void createFileTest() throws IOException {
-        /*Path file = fileDir.resolve("test.txt");
+        File file = new File("ContactList.txt");
+       fileWriter.createFile();
+       Assertions.assertEquals(file.getPath(),fileWriter.getFilePath());
 
-        //@TempDir Path fileDir
-
-        String description = "hej";
-
-        Files.write(file,description.getBytes(StandardCharsets.UTF_8));
-        Files.readAllLines(file);
-
-        List<String> actualData = Files.readAllLines(file);
-
-        List<String> expected = Collections.singletonList(description);
-
-        assertEquals(expected,actualData);*/
-
-        File file = new File("contactList.txt");
-        fileWriter.createFile();
-        Assertions.assertEquals(file.getPath(), fileWriter.getFilePath());
 
     }
 
@@ -56,10 +39,4 @@ public class WriteToFileTest {
 
     }
 
-    @Test
-
-    void writeFile(@TempDir File file) throws IOException {
-         file = File.createTempFile("contactList.txt","hej");
-         file.canWrite();
-    }
 }
