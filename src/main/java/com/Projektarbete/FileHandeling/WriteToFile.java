@@ -8,6 +8,10 @@ public class WriteToFile {
     private File fileList = null;
     private String filePath = "ContactList.txt";
 
+    public String getFilePath() {
+        return filePath;
+    }
+
     public void createFile() throws IOException {
         fileList = new File(this.filePath);
         filePath = fileList.getPath();
