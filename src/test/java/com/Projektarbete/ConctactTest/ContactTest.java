@@ -20,8 +20,8 @@ class ContactTest {
     @Order(1)
     // Check if the setFirstName() method changes the firstName instance-variable of a Contact object.
     void setFirstName_whenFirstNameValid_contactWithNewFirstName() {
-        contactExample.setFirstName("Anders Ö");
-        assertEquals("Anders Ö",contactExample.getFirstName());
+        contactExample.setFirstName("Anders");
+        assertEquals("Anders",contactExample.getFirstName());
     }
 
     @Test
@@ -29,7 +29,7 @@ class ContactTest {
     // Check if validateFirstName() method doesn't throw a NonValidNameException
     // when a first-name of proper format is given as input argument.
     void ValidateName_whenFirstNameIsValid_doesntThrowNonValidNameException() {
-        assertDoesNotThrow(() -> contactExample.validateFirstName("Anders Ö"));
+        assertDoesNotThrow(() -> contactExample.validateFirstName("Anders"));
     }
 
     @Test
