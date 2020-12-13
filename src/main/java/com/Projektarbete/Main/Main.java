@@ -55,55 +55,62 @@ public class Main {
         printActions();
 
         while (!quit) {
-            System.out.print("Choose from menu (6 to show menu): ");
-            int action = scanner.nextInt();
-            scanner.nextLine();
+            try {
+                System.out.print("Choose from menu (6 to show menu): ");
+                int action = scanner.nextInt();
+                scanner.nextLine();
 
-            switch (action) {
-                case 0:
-                    System.out.println("\nClosing...");
-                    quit = true;
-                    break;
+                switch (action) {
+                    case 0:
+                        System.out.println("\nClosing...");
+                        quit = true;
+                        break;
 
-                case 1:
-                    contactList.listContacts();
-                    break;
+                    case 1:
+                        contactList.listContacts();
+                        break;
 
-                case 2:
+                    case 2:
 
-                    System.out.println("Add contact.");
-                    addNewContact();
-                    fileWriter.writeDataToFile(contactList);
+                        System.out.println("Add contact.");
+                        addNewContact();
+                        fileWriter.writeDataToFile(contactList);
 
-                    contactList.listContacts();
-                    break;
+                        contactList.listContacts();
+                        break;
 
-                case 3:
-                    System.out.println("Update contact");
-                    updateContact();
-                    fileWriter.writeDataToFile(contactList);
-                    break;
+                    case 3:
+                        System.out.println("Update contact");
+                        updateContact();
+                        fileWriter.writeDataToFile(contactList);
+                        break;
 
-                case 4:
-                    System.out.println("Search contact.");
-                    searchContact();
-                    break;
+                    case 4:
+                        System.out.println("Search contact.");
+                        searchContact();
+                        break;
 
-                case 5:
-                    System.out.println("Remove contact.");
-                    removeContact();
-                    fileWriter.writeDataToFile(contactList);
-                    break;
+                    case 5:
+                        System.out.println("Remove contact.");
+                        removeContact();
+                        fileWriter.writeDataToFile(contactList);
+                        break;
 
-                case 6:
-                    printActions();
-                    break;
+                    case 6:
+                        printActions();
+                        break;
 
-                default:
-                    System.out.println("Choose number from menu.");
-                    break;
+                    default:
+                        System.out.println("Choose number from menu.");
+                        break;
 
+                }
+
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Start the program again.");
+                break;
             }
+
         }
     }
 
@@ -144,16 +151,13 @@ public class Main {
                 );
 
             }
-        }
-        catch(NonValidNameException exc) {
+        } catch (NonValidNameException exc) {
             System.out.println(exc);
             exc.printStackTrace();
-        }
-        catch(NonValidTelephoneException exc) {
+        } catch (NonValidTelephoneException exc) {
             System.out.println(exc);
             exc.printStackTrace();
-        }
-        catch(NonValidEmailException exc) {
+        } catch (NonValidEmailException exc) {
             System.out.println(exc);
             exc.printStackTrace();
         }
@@ -213,7 +217,7 @@ public class Main {
 
                 System.out.println("Enter new firstname for contact");
                 String newFirstName = scanner.nextLine();
-                try{
+                try {
                     Contact updatedContactFirstName = Contact.createContact(newFirstName, listContact.getLastName(),
                             listContact.getTelephoneNumber(), listContact.getEmailAddress());
 
@@ -225,8 +229,7 @@ public class Main {
                     } else {
                         System.out.println("Could not update contact firstname.");
                     }
-                }
-                catch(NonValidNameException exc) {
+                } catch (NonValidNameException exc) {
                     System.out.println(exc);
                     exc.printStackTrace();
                 }
@@ -249,8 +252,7 @@ public class Main {
                     } else {
                         System.out.println("Could not update contact surname.");
                     }
-                }
-                catch(NonValidNameException exc) {
+                } catch (NonValidNameException exc) {
                     System.out.println(exc);
                     exc.printStackTrace();
                 }
@@ -272,8 +274,7 @@ public class Main {
                     } else {
                         System.out.println("Could not update contact phone number.");
                     }
-                }
-                catch(NonValidTelephoneException exc){
+                } catch (NonValidTelephoneException exc) {
                     System.out.println(exc);
                     exc.printStackTrace();
                 }
@@ -282,7 +283,7 @@ public class Main {
             case 4:
                 System.out.println("Enter new email for contact");
 
-                    String newEmail = scanner.nextLine();
+                String newEmail = scanner.nextLine();
 
                 try {
                     Contact updatedContactEmail = Contact.createContact(listContact.getFirstName(), listContact.getLastName(),
@@ -296,8 +297,7 @@ public class Main {
                     } else {
                         System.out.println("Could not update contact email.");
                     }
-                }
-                catch(NonValidEmailException exc) {
+                } catch (NonValidEmailException exc) {
                     System.out.println(exc);
                     exc.printStackTrace();
                 }
