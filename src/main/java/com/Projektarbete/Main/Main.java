@@ -1,6 +1,9 @@
 package com.Projektarbete.Main;
 
 import com.Projektarbete.Contact.Contact;
+import com.Projektarbete.Contact.NonValidEmailException;
+import com.Projektarbete.Contact.NonValidNameException;
+import com.Projektarbete.Contact.NonValidTelephoneException;
 import com.Projektarbete.FileHandeling.ReadFromFile;
 import com.Projektarbete.FileHandeling.WriteToFile;
 import com.Projektarbete.ListOperations.ContactList;
@@ -17,7 +20,7 @@ public class Main {
     private static WriteToFile fileWriter = new WriteToFile();
     private static ReadFromFile fileReader = new ReadFromFile();
 
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException, NonValidEmailException, NonValidNameException, NonValidTelephoneException {
         // Måste lägga metodanropet för filskapandet här utanför while loopen så att vi kan använda filen.
         fileWriter.createFile();
         //Ger contactList data från inläsningen av filen. Måste också ligga utanför while loopen.
@@ -115,7 +118,8 @@ public class Main {
         System.out.println("========== **** ==========");
     }
 
-    private static Contact addNewContact() throws IOException, ClassNotFoundException {
+    private static Contact addNewContact() throws IOException, ClassNotFoundException,
+            NonValidNameException, NonValidEmailException, NonValidTelephoneException {
         System.out.print("Enter your firstname: ");
         String firstName = scanner.nextLine();
         System.out.print("Enter your surname: ");
@@ -126,6 +130,26 @@ public class Main {
         String eMail = scanner.nextLine();
 
         Contact newContact = new Contact(firstName, lastName, telNumber, eMail);
+
+        try {
+            newContact.validateFirstName(firstName);
+            newContact.validateLastName(lastName);
+            newContact.validateEmail(eMail);
+            newContact.validateTelephone(telNumber);
+        }
+        catch(NonValidNameException exc) {
+            System.out.println(exc);
+            exc.printStackTrace();
+        }
+        catch(NonValidEmailException exc) {
+            System.out.println(exc);
+            exc.printStackTrace();
+        }
+        catch(NonValidTelephoneException exc) {
+            System.out.println(exc);
+            exc.printStackTrace();
+        }
+
         if (contactList.addContact(newContact)) {
             System.out.println("Added contact: firstname: " + firstName + "| " +
                     "surname: " + lastName + "| " + "phone number: " + telNumber +
@@ -168,7 +192,8 @@ public class Main {
 
     }
 
-    private static void updateContact() {
+    private static void updateContact() throws NonValidNameException, NonValidTelephoneException,
+            NonValidEmailException {
         System.out.println("Enter contact to update: ");
         String contactName = scanner.nextLine();
         Contact listContact = contactList.searchContact(contactName);
@@ -189,15 +214,22 @@ public class Main {
 
                 System.out.println("Enter new firstname for contact");
                 String newFirstName = scanner.nextLine();
-                Contact updatedContactFirstName = Contact.createContact(newFirstName, listContact.getLastName(),
-                        listContact.getTelephoneNumber(), listContact.getEmailAddress());
+                try{
+                    Contact updatedContactFirstName = Contact.createContact(newFirstName, listContact.getLastName(),
+                            listContact.getTelephoneNumber(), listContact.getEmailAddress());
 
+                    updatedContactFirstName.validateFirstName(newFirstName);
 
-                if ((contactList.updateContact(listContact, updatedContactFirstName))) {
-                    System.out.println("Contact firstname updated.");
+                    if ((contactList.updateContact(listContact, updatedContactFirstName))) {
+                        System.out.println("Contact firstname updated.");
 
-                } else {
-                    System.out.println("Could not update contact firstname.");
+                    } else {
+                        System.out.println("Could not update contact firstname.");
+                    }
+                }
+                catch(NonValidNameException exc) {
+                    System.out.println(exc);
+                    exc.printStackTrace();
                 }
 
                 break;
@@ -205,46 +237,72 @@ public class Main {
             case 2:
                 System.out.println("Enter new surname for contact");
                 String newSurName = scanner.nextLine();
-                Contact updatedContactSurName = Contact.createContact(listContact.getFirstName(), newSurName,
-                        listContact.getTelephoneNumber(), listContact.getEmailAddress());
 
+                try {
+                    Contact updatedContactSurName = Contact.createContact(listContact.getFirstName(), newSurName,
+                            listContact.getTelephoneNumber(), listContact.getEmailAddress());
 
-                if ((contactList.updateContact(listContact, updatedContactSurName))) {
-                    System.out.println("Contact surname updated.");
+                    updatedContactSurName.validateLastName(newSurName);
 
-                } else {
-                    System.out.println("Could not update contact surname.");
+                    if ((contactList.updateContact(listContact, updatedContactSurName))) {
+                        System.out.println("Contact surname updated.");
+
+                    } else {
+                        System.out.println("Could not update contact surname.");
+                    }
+                }
+                catch(NonValidNameException exc) {
+                    System.out.println(exc);
+                    exc.printStackTrace();
                 }
                 break;
 
             case 3:
                 System.out.println("Enter new phone number for contact");
                 String newPhoneNumber = scanner.nextLine();
-                Contact updatedContactPhone = Contact.createContact(listContact.getFirstName(), listContact.getLastName(),
-                        newPhoneNumber, listContact.getEmailAddress());
 
+                try {
+                    Contact updatedContactPhone = Contact.createContact(listContact.getFirstName(), listContact.getLastName(),
+                            newPhoneNumber, listContact.getEmailAddress());
 
-                if ((contactList.updateContact(listContact, updatedContactPhone))) {
-                    System.out.println("Contact phone number updated.");
+                    updatedContactPhone.validateTelephone(newPhoneNumber);
 
-                } else {
-                    System.out.println("Could not update contact phone number.");
+                    if ((contactList.updateContact(listContact, updatedContactPhone))) {
+                        System.out.println("Contact phone number updated.");
+
+                    } else {
+                        System.out.println("Could not update contact phone number.");
+                    }
+                }
+                catch(NonValidTelephoneException exc){
+                    System.out.println(exc);
+                    exc.printStackTrace();
                 }
                 break;
 
             case 4:
                 System.out.println("Enter new email for contact");
-                String newEmail = scanner.nextLine();
-                Contact updatedContactEmail = Contact.createContact(listContact.getFirstName(), listContact.getLastName(),
-                        listContact.getTelephoneNumber(), newEmail);
 
+                    String newEmail = scanner.nextLine();
 
-                if ((contactList.updateContact(listContact, updatedContactEmail))) {
-                    System.out.println("Contact email updated.");
+                try {
+                    Contact updatedContactEmail = Contact.createContact(listContact.getFirstName(), listContact.getLastName(),
+                            listContact.getTelephoneNumber(), newEmail);
 
-                } else {
-                    System.out.println("Could not update contact email.");
+                    updatedContactEmail.validateEmail(newEmail);
+
+                    if ((contactList.updateContact(listContact, updatedContactEmail))) {
+                        System.out.println("Contact email updated.");
+
+                    } else {
+                        System.out.println("Could not update contact email.");
+                    }
                 }
+                catch(NonValidEmailException exc) {
+                    System.out.println(exc);
+                    exc.printStackTrace();
+                }
+
                 break;
 
         }
