@@ -125,8 +125,7 @@ public class Main {
         System.out.println("========== **** ==========");
     }
 
-    private static Contact addNewContact() throws IOException, ClassNotFoundException,
-            NonValidNameException, NonValidEmailException, NonValidTelephoneException {
+    private static Contact addNewContact() {
         System.out.print("Enter your firstname: ");
         String firstName = scanner.nextLine();
         System.out.print("Enter your surname: ");
@@ -195,8 +194,7 @@ public class Main {
 
     }
 
-    private static void updateContact() throws NonValidNameException, NonValidTelephoneException,
-            NonValidEmailException {
+    private static void updateContact() {
         System.out.println("Enter contact to update: ");
         String contactName = scanner.nextLine();
         Contact listContact = contactList.searchContact(contactName);
