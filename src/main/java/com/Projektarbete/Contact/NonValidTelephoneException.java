@@ -5,6 +5,6 @@ package com.Projektarbete.Contact;
 // someone tries to give "Albert" as value to telephoneNumber instance-variable of a Contact object.
 public class NonValidTelephoneException extends Exception{
     public NonValidTelephoneException(String telephone) {
-        super("* NonValidTelephoneException: Telephone '" + telephone + "' has incorrect format.");
+        super("\n" + "* NonValidTelephoneException: Telephone '" + telephone + "' has incorrect format.");
     }
 }
