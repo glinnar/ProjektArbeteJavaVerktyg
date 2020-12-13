@@ -136,12 +136,16 @@ public class Main {
             newContact.validateLastName(lastName);
             newContact.validateEmail(eMail);
             newContact.validateTelephone(telNumber);
+
+            if (contactList.addContact(newContact)) {
+                System.out.println("Added contact: firstname: " + firstName + "| " +
+                        "surname: " + lastName + "| " + "phone number: " + telNumber +
+                        " |" + " email:" + eMail
+                );
+
+            }
         }
         catch(NonValidNameException exc) {
-            System.out.println(exc);
-            exc.printStackTrace();
-        }
-        catch(NonValidEmailException exc) {
             System.out.println(exc);
             exc.printStackTrace();
         }
@@ -149,15 +153,10 @@ public class Main {
             System.out.println(exc);
             exc.printStackTrace();
         }
-
-        if (contactList.addContact(newContact)) {
-            System.out.println("Added contact: firstname: " + firstName + "| " +
-                    "surname: " + lastName + "| " + "phone number: " + telNumber +
-                    " |" + " email:" + eMail
-            );
-
+        catch(NonValidEmailException exc) {
+            System.out.println(exc);
+            exc.printStackTrace();
         }
-
         return newContact;
     }
 
@@ -310,3 +309,5 @@ public class Main {
     }
 
 }
+
+
