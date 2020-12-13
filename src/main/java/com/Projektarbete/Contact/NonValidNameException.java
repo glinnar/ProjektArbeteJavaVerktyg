@@ -5,6 +5,6 @@ package com.Projektarbete.Contact;
 // someone tries to give "2021" as value to firstName instance-variable of a Contact object.
 public class NonValidNameException extends Exception{
     public NonValidNameException(String name) {
-        super("* NonValidNameException: Name '" + name + "' has incorrect format.");
+        super("\n" + "* NonValidNameException: Name '" + name + "' has incorrect format.");
     }
 }

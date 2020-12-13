@@ -1,4 +1,4 @@
-package com.Projektarbete.ConctactTest;
+package com.Projektarbete.ContactTest;
 
 import com.Projektarbete.Contact.Contact;
 import com.Projektarbete.Contact.NonValidEmailException;

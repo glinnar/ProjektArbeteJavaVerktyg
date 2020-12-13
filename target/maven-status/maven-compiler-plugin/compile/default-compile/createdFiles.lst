@@ -1,0 +1,9 @@
+com\Projektarbete\Main\InputMismatchEx.class
+com\Projektarbete\Main\Main.class
+com\Projektarbete\FileHandeling\ReadFromFile.class
+com\Projektarbete\Contact\Contact.class
+com\Projektarbete\Contact\NonValidNameException.class
+com\Projektarbete\Contact\NonValidEmailException.class
+com\Projektarbete\Contact\NonValidTelephoneException.class
+com\Projektarbete\FileHandeling\WriteToFile.class
+com\Projektarbete\ListOperations\ContactList.class
