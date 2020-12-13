@@ -16,7 +16,7 @@ public class ContactList implements Serializable {
     // Skriver ut den vanliga listan.
 
     public void listContacts() {
-        System.out.println("Contact ______");
+        System.out.println("");
         System.out.println(" Firstname " + " | " + " Surname" + " | " + " Tel " + " | "
                 + " Email ");
 

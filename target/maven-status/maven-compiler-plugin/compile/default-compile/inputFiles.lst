@@ -1,8 +1,9 @@
-/mnt/d/Skolan/Byggverktyg/ProjektArbeteJavaVerktyg/src/main/java/com/Projektarbete/Contact/NonValidTelephoneException.java
-/mnt/d/Skolan/Byggverktyg/ProjektArbeteJavaVerktyg/src/main/java/com/Projektarbete/FileHandeling/ReadFromFile.java
-/mnt/d/Skolan/Byggverktyg/ProjektArbeteJavaVerktyg/src/main/java/com/Projektarbete/FileHandeling/WriteToFile.java
-/mnt/d/Skolan/Byggverktyg/ProjektArbeteJavaVerktyg/src/main/java/com/Projektarbete/Contact/NonValidNameException.java
-/mnt/d/Skolan/Byggverktyg/ProjektArbeteJavaVerktyg/src/main/java/com/Projektarbete/Main/Main.java
-/mnt/d/Skolan/Byggverktyg/ProjektArbeteJavaVerktyg/src/main/java/com/Projektarbete/Contact/Contact.java
-/mnt/d/Skolan/Byggverktyg/ProjektArbeteJavaVerktyg/src/main/java/com/Projektarbete/Contact/NonValidEmailException.java
-/mnt/d/Skolan/Byggverktyg/ProjektArbeteJavaVerktyg/src/main/java/com/Projektarbete/ListOperations/ListMethods.java
+C:\Users\Ägaren\Desktop\Java_Grupparbete\ProjektArbeteJavaVerktyg\src\main\java\com\Projektarbete\ListOperations\ContactList.java
+C:\Users\Ägaren\Desktop\Java_Grupparbete\ProjektArbeteJavaVerktyg\src\main\java\com\Projektarbete\Main\InputMismatchEx.java
+C:\Users\Ägaren\Desktop\Java_Grupparbete\ProjektArbeteJavaVerktyg\src\main\java\com\Projektarbete\FileHandeling\WriteToFile.java
+C:\Users\Ägaren\Desktop\Java_Grupparbete\ProjektArbeteJavaVerktyg\src\main\java\com\Projektarbete\FileHandeling\ReadFromFile.java
+C:\Users\Ägaren\Desktop\Java_Grupparbete\ProjektArbeteJavaVerktyg\src\main\java\com\Projektarbete\Contact\Contact.java
+C:\Users\Ägaren\Desktop\Java_Grupparbete\ProjektArbeteJavaVerktyg\src\main\java\com\Projektarbete\Main\Main.java
+C:\Users\Ägaren\Desktop\Java_Grupparbete\ProjektArbeteJavaVerktyg\src\main\java\com\Projektarbete\Contact\NonValidTelephoneException.java
+C:\Users\Ägaren\Desktop\Java_Grupparbete\ProjektArbeteJavaVerktyg\src\main\java\com\Projektarbete\Contact\NonValidEmailException.java
+C:\Users\Ägaren\Desktop\Java_Grupparbete\ProjektArbeteJavaVerktyg\src\main\java\com\Projektarbete\Contact\NonValidNameException.java

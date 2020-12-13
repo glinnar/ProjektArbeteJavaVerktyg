@@ -20,7 +20,8 @@ public class Main {
     private static WriteToFile fileWriter = new WriteToFile();
     private static ReadFromFile fileReader = new ReadFromFile();
 
-    public static void main(String[] args) throws IOException, ClassNotFoundException, NonValidEmailException, NonValidNameException, NonValidTelephoneException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException,
+            NonValidEmailException, NonValidNameException, NonValidTelephoneException {
         // Måste lägga metodanropet för filskapandet här utanför while loopen så att vi kan använda filen.
         fileWriter.createFile();
         //Ger contactList data från inläsningen av filen. Måste också ligga utanför while loopen.
@@ -71,11 +72,9 @@ public class Main {
                         break;
 
                     case 2:
-
                         System.out.println("Add contact.");
                         addNewContact();
                         fileWriter.writeDataToFile(contactList);
-
                         contactList.listContacts();
                         break;
 

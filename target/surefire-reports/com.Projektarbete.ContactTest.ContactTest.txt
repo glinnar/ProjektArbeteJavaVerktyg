@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.Projektarbete.ContactTest.ContactTest
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.189 s <<< FAILURE! - in com.Projektarbete.ContactTest.ContactTest
+com.Projektarbete.ContactTest.ContactTest.setFirstName_whenFirstNameValid_contactWithNewFirstName  Time elapsed: 0.01 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Anderson> but was: <Anders>
+	at com.Projektarbete.ContactTest.ContactTest.setFirstName_whenFirstNameValid_contactWithNewFirstName(ContactTest.java:24)
+
