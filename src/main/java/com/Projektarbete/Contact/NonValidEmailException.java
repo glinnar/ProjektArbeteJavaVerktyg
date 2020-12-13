@@ -6,6 +6,6 @@ package com.Projektarbete.Contact;
 // instance variable of a Contact object.
 public class NonValidEmailException extends Exception {
     public NonValidEmailException(String emailAdress) {
-        super("* NonValidEmailException: Email address " + emailAdress + " has incorrect format.");
+        super("\n" + "* NonValidEmailException: Email address " + emailAdress + " has incorrect format.");
     }
 }
