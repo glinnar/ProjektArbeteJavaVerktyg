@@ -3,6 +3,7 @@ package com.Projektarbete.ListOperations;
 import com.Projektarbete.Contact.Contact;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ContactList implements Serializable {
     private ArrayList<Contact> myContacts;
@@ -50,11 +51,11 @@ public class ContactList implements Serializable {
 
 
     // Returnerar index platsen på objektet som skickas in i den vanliga listan.
-    private int getContact(Contact contact) {
+    public int getContact(Contact contact) {
         return this.myContacts.indexOf(contact);
     }
 
-    private int getContact(String contactName) {
+    public int getContact(String contactName) {
         for (int i = 0; i < this.myContacts.size(); i++) {
             Contact contact = this.myContacts.get(i);
             if (contact.getFirstName().equals(contactName)) {
@@ -98,10 +99,5 @@ public class ContactList implements Serializable {
         return true;
 
     }
-
-    //public static Contact createContact(String firstName, String lastName, String telephoneNumber, String emailAddress) {
-    //    return new Contact(firstName, lastName, telephoneNumber, emailAddress);
-    //}
-
 
 }
