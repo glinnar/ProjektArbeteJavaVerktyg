@@ -1,7 +1,7 @@
 #ProjektArbete i Javabyggverktygskursen.
 
 Grupp 5
-Hans Sandblom hej
+Hans Sandblom 
 Athanasios Stathis
 Kozue Yamada
 Gustaf Linnarsson
